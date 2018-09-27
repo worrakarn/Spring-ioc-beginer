@@ -1,4 +1,4 @@
-package com.ioc.id.values;
+package com.ioc.setter;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -7,14 +7,12 @@ public class MyApp {
 	public static void main(String[] args) {
 		// load the spring configuration file
 		ClassPathXmlApplicationContext context =
-				new ClassPathXmlApplicationContext("file:src/main/resources/applicationContext-DI-Values.xml");
+				new ClassPathXmlApplicationContext("file:src/main/resources/applicationContext-DI-Setter.xml");
 		// retrieve bean from spring container
-		TrackCoach theCoach = context.getBean("myCoach", TrackCoach.class);
+		Coach theCoach = context.getBean("myCoach", Coach.class);
 		//call methods on the bean
 		System.out.println(theCoach.getDailyWorkout());
 		System.out.println(theCoach.getDailFortune());
-		System.out.println("Email: "+theCoach.getEmailAddress());
-		System.out.println("Team: "+theCoach.getTeam());
 		//close the context
 		context.close();
 
